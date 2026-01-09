@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Hamming Johnson Distances Relations}
+\author{Raul Marquez}
+\date{December 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+\textbf{Hamming / Johnson} \\
+Let $f(x) = (\epsilon + x) \prod_{i=1}^s(d_i-x) = \sum_{i=0}^s f_i p_i(x)$. We have
+\[ f(x) = (-1)^{s}(x^{s+1} - (-\epsilon + d_1 + \cdots + d_s)x^{s}) + \dots\]
+In the follow, we use the relation $\mathcal{L}(x^m p_k) = 0$, valid for all $0 \leq m < k$, and relations (2) and (3). We compute
+\[ (-1)^{s}f_{s+1} = r_{s+1} \mathcal{L}(x^{s+1}p_{s+1} = r_{s+1} \mathcal{L}(x^{s}(a_{s+1} p_{s+2} + b_{s+1} p_{s+1} + c_{s+1} p_{s}))\]
+\[ = r_{s+1} c_{s+1} \mathcal{L}(x^{s}p_s) = \cdots = r_{s+1}c_1 c_2 \cdots c_{s+1}\]
+We can use from Barg Musin,
+\[ \mathcal{L}(x^s p_{s-1}) = c_1c_2 \cdots c_{s-1}(b_0 + b_1 + \cdots + b_{s-1}), \,\,\, s \geq 2.\]
+Next,
+\[ f_s = r_s \mathcal{L}((-1)^{s}(x^{s+1} - (-\epsilon + d_1 + \cdots + d_s)x^{s})p_s)\]
+\[= (-1)^{s} r_s (c_1 c_2 \cdots c_s(b_0+b_1 + \cdots b_s) - (-\epsilon + d_1 + \cdots + d_s)c_1 \cdots c_s)\]
+\[ = (-1)^{s}r_s c_1 \cdots c_s((b_0 + b_1 + \cdots +b_s) - (-\epsilon + d_1 + \cdots d_s))\]
+Let $\mathcal{C}$ be a code in compact distance-transitive space $X$ with distances $d_1, \dots, d_s$. Let the numbers $b_i,c_i, i \geq 0$ be defined by (2) and let
+\[ D_0 = b_0 + \cdots + b_s + \epsilon - d_0 - d_1 - \cdots - d_s.\]
+(a) Suppose that $c_i < 0, i =1,2, \dots$. Then, it follows
+\[ |\mathcal{C}|\leq h_0 + h_1 + \cdots + h_{s-2} + h_{s-1} + h_{s}\]
+Again, suppose $D \leq 0$ for $\epsilon > 0$. Then
+\[ |\mathcal{C}|\leq h_0 + h_1 + \cdots + h_{s-2} + h_{s-1}.\]
+Additionally, there exists a closed form for the expression $D$, achieved using Gauss's addition formula and telescoping series.
+Hamming:
+\[ \sum_{i = 0}^s b_i = \sum_{i=0}^s \frac{i + (q-1)(n-i)}{q} \]
+\[ = \sum_{i=0}^s i + \frac{(q-1)n}{q} = \frac{s(s+1)}{2} + \frac{(q-1)(s+1)n}{q}\]
+Johnson
+\[ \sum_{i = 0}^s b_i = \sum_{i=0}^s \frac{(n+2)w(n-w) - ni(n-i+1)}{(n-2i)(n-2i+2)}\]
+\[ = \sum_{i=0}^s \frac{n}{4} +
+\frac{n^3-4 n^2 w+2 n^2+4 n w^2-8 n w+8 w^2}{8} \left(\frac{1}{n-2i + 2} - \frac{1}{n-2i} \right) \]
+\[ =\frac{n(s+1)}{4} + \frac{(n+2)(n-2w)^2}{8} \left(\frac{1}{n+ 2} - \frac{1}{n-2s} \right)\]
+\[ =\frac{n(s+1)}{4} - \frac{(s+1)(n-2w)^2}{4(n-2s)} \]
+\textbf{Spherical}\\
+Let $g(t) = (1 + \epsilon - t) \prod_{i=1}^s(t - \beta_i) = \sum_{i=0}^s g_i p_i(x)$. We have
+\[ g(t) = -t^{s+1} + (1 + \epsilon + d_1 + \cdots + d_s)t^{s} + \dots\]
+In the follow, we use the relation $\mathcal{L}(t^m p_k) = 0$, valid for all $0 \leq m < k$, and relations (2) and (3). We compute
+\[ -g_{s+1} = r_{s+1} \mathcal{L}(t^{s+1}p_{s+1}) = r_{s+1} \mathcal{L}(t^{s}(a_{s+1} p_{s+2} + b_{s+1} p_{s+1} + c_{s+1} p_{s}))\]
+\[ = r_{s+1} c_{s+1} \mathcal{L}(x^{s}p_s) = \cdots = r_{s+1}c_1 c_2 \cdots c_{s+1}\]
+We can use from Barg Musin,
+\[ \mathcal{L}(t^s p_{s-1}) = c_1c_2 \cdots c_{s-1}(b_0 + b_1 + \cdots + b_{s-1}), \,\,\, s \geq 2.\]
+Next,
+\[ g_s = r_s \mathcal{L}(-t^{s+1} + (1+\epsilon + d_1 + \cdots + d_s)t^{s})p_s)\]
+\[= r_s (-c_1 c_2 \cdots c_s(b_0+b_1 + \cdots b_s) + (1 + \epsilon + d_1 + \cdots + d_s)c_1 \cdots c_s)\]
+\[ = r_s c_1 \cdots c_s(-(b_0 + b_1 + \cdots +b_s) + (1 + \epsilon + d_1 + \cdots d_s))\]
+Let $\mathcal{C}$ be a code in compact distance-transitive space $X$ with distances $d_1, \dots, d_s$. Let the numbers $b_i,c_i, i \geq 0$ be defined by (2) and let
+\[ D_1 = b_0 + \cdots + b_s - 1 - \epsilon - d_0 - d_1 - \cdots - d_s.\]
+(b) Suppose that $c_i > 0, i =1,2, \dots$. Then, it follows
+\[ |\mathcal{C}|\leq h_0 + h_1 + \cdots + h_{s-2} + h_{s-1} + h_{s}\]
+Again, suppose $D \geq 0$ for $\epsilon > 0$. Then
+\[ |\mathcal{C}|\leq h_0 + h_1 + \cdots + h_{s-2} + h_{s-1}.\]
+
+\textbf{Real Projective Space}\\
+Since the real projective space only deals with even Gegenbauer polynomials, then we may utilize the following recurrence and not consider $b_i$ as it evaluates towards zero,
+\[ x^2 p_i = a_i x p_{i+1}  + c_i x p_{i-1} \]
+\[ = a_i (a_{i+1}p_{i+2} + c_{i+1}p_{i}) + c_i (a_{i-1}p_i + c_{i-1}p_{i-2})\]
+\[ = a_i a_{i+1} p_{i+2} + (a_i c_{i+1} + c_i a_{i-1})p_i + c_i c_{i-1}p_{i-2}.\]
+We'll use the following formulas $\alpha_i = a_i a_{i+1}, \beta_i = a_i c_{i+1} + c_i a_{i-1}, \gamma_i = c_i c_{i-1}$, where 
+\[  x^2 p_i = \alpha_i p_{i+2}  + \beta_i p_{i} + \gamma_i p_{i-2}. \]
+Notice that if we use the same arguments as in the Spherical case, substituting $t$ for $t^2$, and using the values of $h_i$ for the Gegenbauer polynomials, we'll receive the same theorem, adjusted accordingly.
+\[ D_2 = \beta_0 + \cdots + \beta_s - 1 - \epsilon - d_0 - d_1 - \cdots - d_s.\]
+(c) Suppose that $\gamma_i > 0, i =1,2, \dots$. Then, it follows
+\[ |\mathcal{C}|\leq h_0 + h_2 + \cdots + h_{2s-4} + h_{2s-2} + h_{2s}\]
+Again, suppose $D \geq 0$ for $\epsilon > 0$. Then
+\[ |\mathcal{C}|\leq h_0 + h_2 + \cdots + h_{2s-4} + h_{2s-2}.\]
+Additionally, there exists a closed form for the expression $D$, achieved using Gauss's addition formula and telescoping series.
+\[ \sum_{i=0}^s \beta_i = \sum_{i=0}^s \frac{(n-2+i)(i+1)}{(n-2+2i)(n+2i)} + \frac{(n-3+i)i}{(n-4+2i)(n-2+2i)}\]
+\[ = \sum_{i=0}^s \frac{i-i^2}{2 (2 i+n-4)}+\frac{i^2+3 i+2}{2 (2 i+n)}\]
+\[ = \sum_{i=0}^s \frac{i-i^2}{2 (2 i+n-4)}+\sum_{i=0}^s\frac{i^2+3 i+2}{2 (2 i+n)}\]
+\[ = \sum_{i=2}^s \frac{i-i^2}{2 (2 i+n-4)}+\sum_{i=0}^s\frac{i^2+3 i+2}{2 (2 i+n)}\]
+\[ = \sum_{i=0}^{s-2} -\frac{i^2+3 i+2}{2(2i + n)}+\sum_{i=0}^s\frac{i^2+3 i+2}{2 (2 i+n)}\]
+\[ = \sum_{i=s-1}^{s}\frac{i^2+3 i+2}{2 (2 i+n)}\]
+\[ = \frac{(s-1)^2+3(s-1)+2}{2 (2(s-1)+n)} + \frac{s^2+3s+2}{2 (2s+n)}\]
+\[ = \frac{(s+1) \left(n s+n+2 s^2+s-2\right)}{(n+2 s-2) (n+2 s)}\]
+
+\end{document}
+
+Let $f(x) = (\epsilon + x) \prod_{i=1}^s(d_i-x) = \sum_{i=0}^s f_i p_i(x)$. We have
+\[ f(x) = (-1)^s(x^{s+1} - (-\epsilon + d_1 + \cdots + d_s)x^{s}) + \dots\]
+In the follow, we use the relation $\mathcal{L}(x^m p_k) = 0$, valid for all $0 \leq m < k$, and relations (2) and (3). We compute
+\[ (-1)^sf_{s+1} = r_{s+1} \mathcal{L}(x^{s+1}p_{s+1} = r_{s+1} \mathcal{L}(x^{s}(a_{s+1} p_{s+2} + b_{s+1} p_{s+1} + c_{s+1} p_{s}))\]
+\[ = r_{s+1} c_{s+1} \mathcal{L}(x^{s}p_s) = \cdots = r_{s+1}c_1 c_2 \cdots c_{s+1}\]
+We can use from Barg Musin,
+\[ \mathcal{L}(x^s p_{s-1}) = c_1c_2 \cdots c_{s-1}(b_0 + b_1 + \cdots + b_{s-1}), \,\,\, s \geq 2.\]
+Next,
+\[ f_s = r_s \mathcal{L}((-1)^s(x^{s+1} - (-\epsilon + d_1 + \cdots + d_s)x^{s})p_s)\]
+\[= (-1)^s r_s (c_1 c_2 \cdots c_s(b_0+b_1 + \cdots b_s) - (-\epsilon + d_1 + \cdots + d_s)c_1 \cdots c_s)\]
+\[ = (-1)^sr_s c_1 \cdots c_2((b_0 + b_1 + \cdots +b_s) - (-\epsilon + d_1 + \cdots d_s)\]
+Next, we claim that
+\[ \mathcal{L}(x^s p_{s-2} )= c_1 c_2 \cdots c_{s-2}(b_0 + b_1 + \cdots\]
+Indeed, 
+\[\mathcal{L}(x^3 p_1) = \mathcal{L}(x^2 (a_1 p_2 + b_1 p_1 + c_1)) = a_1 c_1 c_2 + b_1(b_1c_1 + b_0 c_1) + c_1 b_0^2 = c_1(a_1 c_2 + b_1^2 + b_0b_1 + b_1^2)\]
+Then
+\[ \mathcal{L}(x^s p_{s-2}) = \mathcal{L}(x^{s-1}(a_{s-1}p_{s-1}+ b_{s-2}p_{s-2} + c_{s-2}p_{s-3})\]
+\[ = a_{s-1}c_1c_2 \cdots c_{s-1} + c_1 c_2 \cdots c_{s-2}b_{s-2}\]
